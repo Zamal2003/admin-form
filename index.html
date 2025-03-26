@@ -332,7 +332,7 @@
         }; 
         document.addEventListener('DOMContentLoaded', function() {
     // Fetch form submissions data
-    fetch('http://localhost:5000/api/dashboard/forms-by-date')
+    fetch('https://serve2-o.vercel.app/api/dashboard/forms-by-date')
         .then(response => response.json())
         .then(data => {
             const tableBody = document.getElementById('submissions-data');
@@ -412,7 +412,7 @@
 });
 
     function checkDateSubmissions(date, cell) {
-        fetch(`http://localhost:5000/api/dashboard/forms-by-date?date=${date}`)
+        fetch(`https://serve2-o.vercel.app/api/dashboard/forms-by-date?date=${date}`)
             .then(response => response.json())
             .then(data => {
                 if (data.count > 0) {
@@ -456,7 +456,7 @@
         detailsPanel.style.display = 'block';
 
         // Fetch data
-        fetch(`http://localhost:5000/api/dashboard/forms-by-date?date=${date}`)
+        fetch(`https://serve2-o.vercel.app/api/dashboard/forms-by-date?date=${date}`)
             .then(response => response.json())
             .then(data => {
                 formsCountEl.textContent = data.count || 0;
@@ -492,7 +492,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
     // Fetch total forms filled
-    fetch('http://localhost:5000/api/dashboard/total-forms')
+    fetch('https://serve2-o.vercel.app/api/dashboard/total-forms')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -511,7 +511,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
     // 1. Fetch today's forms filled
-    fetch('http://localhost:5000/api/dashboard/today-forms')
+    fetch('https://serve2-o.vercel.app/api/dashboard/today-forms')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
@@ -527,7 +527,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     // 2. Fetch total forms filled (from your other existing code)
-    fetch('http://localhost:5000/api/dashboard/total-forms')
+    fetch('https://serve2-o.vercel.app/api/dashboard/total-forms')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -543,7 +543,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
     // 3. NEW: Fetch form submissions by date for the chart
-    fetch('http://localhost:5000/api/dashboard/forms-by-date')
+    fetch('https://serve2-o.vercel.app/api/dashboard/forms-by-date')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Forms by date fetch failed: ${response.status}`);
